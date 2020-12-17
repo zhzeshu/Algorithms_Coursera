@@ -1,17 +1,33 @@
-
-def sumNumbers(root):
-    root_to_leaf = 0
-    stack = [(root, 0)]
-    while stack:
-        node, value = stack.pop()
-        if node is not None:
-            value = value*10 + node.val
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+class Solution:
+    def sumNumbers(self, root: TreeNode) -> int:
+        root_to_leaf = 0
+        stack = [(root, 0)]
+        while stack:
+            node, value = stack.pop()
+            if node is not None:
+                value = value * 10 + node.val
                 if node.left is None and node.right is None:
                     root_to_leaf += value
                 else:
-                    stack.append((root.left, value))
                     stack.append((root.right, value))
-    return root_to_leaf
+                    stack.append((root.left, value))
+
+        return root_to_leaf
+
+
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 
 class Solution:
